@@ -44,9 +44,27 @@ class User {
         return false;
     }
 
+    #privatmethodus(){}
+
+    static atlagEletkor(users){
+        let sum = 0;
+        for (let u of users){
+            sum += u.#eletkor;
+        }
+        return sum / users.lenght;
+    }
+
 }
 
 let user = new User("Maurisz", 20);
+let userek = [
+    user,
+    new User("User2", 22),
+    new User("User3", 30),
+]
+
+let atlag = User.atlagEletkor(userek);
+console.log(""+atlag);
 
 console.log(valami instanceof User);
 console.log(user instanceof User);
@@ -63,5 +81,10 @@ let obj = {
 obj.kiir();
 //k();
 
-document.getElementById('gomb').addEventListener('click',user.kiir);
+function gombKatt(){
+    user.kiir();
+    console.log(atlag);
+}
+
+//document.getElementById('gomb').addEventListener('click',gombKatt);
 
